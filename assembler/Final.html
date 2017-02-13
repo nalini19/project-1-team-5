@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body background="https://vfwebsiteassets.s3.amazonaws.com/0d807bc2-08cd-4701-95ff-be605ec67b10.jpg">
+
+<div class="container">
+    <br>
+    <img src="http://freevector.co/wp-content/uploads/2013/11/75524-video-game-controller.png"/>
+  <h2> 1 Play Game !</h2>
+
+    <div class="form-group">
+      <label >Enter a Long Number</label>
+      <input  class="form-control" id="g1"  style="width:600px;">
+    </div>
+    <div class="form-group">
+      <label >Enter a single digit guessing number</label>
+      <input class="form-control" id="g2"  style="width:600px;">
+    </div>
+    
+    <button onclick="myFunction()" class="btn btn-danger">Submit</button>
+<h2 id="demo"></h2>
+</div>
+<hr>
+    <div class="container">
+        <h2> 2 Play Game !</h2>
+    
+	<form  id="form3">
+          <div class="field-wrap">
+		  <label>
+              Enter the Small number 
+            </label>
+            <input class="form-control" name="b3" type="value"  style="width:600px;">
+			</form>
+    
+	<br>
+	 <form  id="form4">
+          <div class="field-wrap">
+		  <label>
+              Enter the Big number 
+            </label>
+            <input class="form-control" name="b4" type="value"  style="width:600px;">
+			</form>
+          </div>
+    
+	 <form  id="form5">
+          
+		  <div class="field-wrap">
+            <label>
+              Enter the Lucky Number 
+            </label>
+			<input class="form-control" name="b5" type="value"  style="width:600px;">
+			</form>
+			</div>
+    
+   
+       
+	     <button type="button" class="btn btn-danger" onclick="myFunction2()"  data-toggle="modal" data-target="#myModal" >Submit</button>
+		
+		 
+		
+			  <div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+
+		
+
+		 <div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Result</h4>
+				</div>
+			<div class="modal-body">
+				<p id="demo1"></p>
+			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+
+			</div>
+		</div>
+	  
+    </div>
+    
+    <script>
+function myFunction() {
+    var x= document.getElementById('g1').value;
+    var y= document.getElementById('g2').value;
+    var a=x;
+   var sum=0;
+    while(a!=0)
+        {
+            sum=sum+(a%10);
+            a=Math.floor(a/10);
+        }
+    sum=Math.floor(sum);
+    if(sum==y)
+        var result="It is your lucky number !"
+        else
+            var result="better luck next time !"
+    document.getElementById("demo").innerHTML = result;
+	
+	if(sum>9)
+	{
+		var su = add(sum);
+			
+		if(su==y)
+			  document.getElementById("demo").innerHTML ="It is your lucky number !"
+        else
+             document.getElementById("demo").innerHTML = "Better luck next time";
+			
+			
+			
+			
+	}		
+			
+}
+</script>
+
+
+<script>
+
+function myFunction2()
+{
+	var a,c,d,e,f,g,h,i;
+	a=document.getElementById("form3");
+	c=document.getElementById("form4");
+	d=document.getElementById("form5")
+	e=a.elements["b3"].value;
+	f=c.elements["b4"].value;
+	g=d.elements["b5"].value;
+		
+	for(i=e;i<f;i++)
+	{	
+		var f1 = add(i);
+		
+		if(f1>9)
+		{
+			var f2 = add(f1);
+			
+			if(f2==g)
+			{
+				document.getElementById("demo1").innerHTML+= i+" , ";
+			}
+		}
+		if(f1==g)
+		{
+			document.getElementById("demo1").innerHTML+= i+" , ";
+		}
+	}
+			
+}
+
+function add(num)
+{
+	var sum=0;
+	while(num>0)
+	{
+		sum=sum+(num%10);
+		num=Math.floor(num/10);
+	}
+	return sum;
+}
+
+
+</script>  
+   
+<script>
+function add(num)
+{
+	var sum=0;
+	while(num>0)
+	{
+		sum=sum+(num%10);
+		num=Math.floor(num/10);
+	}
+	return sum;
+}
+
+</script>
+</body> 
+</html>
